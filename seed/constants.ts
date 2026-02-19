@@ -1,188 +1,215 @@
-import { BentoItem, Testimonial } from './types';
+import type { BentoItem, Testimonial } from "./types";
 
-export const CATEGORIES = ['All', 'Design', 'Development', 'Marketing', 'Productivity'] as const;
+export const CATEGORIES = [
+  "All",
+  "Design",
+  "Development",
+  "Marketing",
+  "Productivity",
+] as const;
 
 export const MORE_CATEGORIES = [
-  'Analytics', 'Artificial Intelligence', 'Blockchain', 'Cloud Infrastructure',
-  'Cybersecurity', 'Data Science', 'E-commerce', 'Education', 'Entertainment',
-  'Finance', 'Gaming', 'Health & Wellness', 'Internet of Things', 'Mobile Apps',
-  'Social Media', 'Sustainability', 'Virtual Reality', 'Wearables'
+  "Analytics",
+  "Artificial Intelligence",
+  "Blockchain",
+  "Cloud Infrastructure",
+  "Cybersecurity",
+  "Data Science",
+  "E-commerce",
+  "Education",
+  "Entertainment",
+  "Finance",
+  "Gaming",
+  "Health & Wellness",
+  "Internet of Things",
+  "Mobile Apps",
+  "Social Media",
+  "Sustainability",
+  "Virtual Reality",
+  "Wearables",
 ];
 
 export const ITEMS: BentoItem[] = [
   {
-    id: '1',
-    title: 'Haptic',
-    description: 'We help ambitious teams turn bold visions into lasting impact.',
-    category: 'Design',
-    backgroundColor: 'bg-orange-500',
-    size: 'big',
-    cta: 'Book a Call',
-    darkText: false
+    id: "1",
+    title: "Haptic",
+    description:
+      "We help ambitious teams turn bold visions into lasting impact.",
+    category: "Design",
+    backgroundColor: "bg-orange-500",
+    size: "big",
+    cta: "Book a Call",
+    darkText: false,
   },
   {
-    id: '2',
-    title: 'Algo',
-    description: 'Data-visualization studio specializing in video automation.',
-    category: 'Development',
-    imageUrl: 'https://picsum.photos/seed/algo/800/800',
-    size: 'wide',
-    date: '01 Tech'
+    id: "2",
+    title: "Algo",
+    description: "Data-visualization studio specializing in video automation.",
+    category: "Development",
+    imageUrl: "https://picsum.photos/seed/algo/800/800",
+    size: "wide",
+    date: "01 Tech",
   },
   {
-    id: '3',
-    title: 'Town',
-    description: 'Tax prep that never stops working for your small business.',
-    category: 'Productivity',
-    backgroundColor: 'bg-emerald-900',
-    size: 'tall',
-    cta: 'Get Started'
+    id: "3",
+    title: "Town",
+    description: "Tax prep that never stops working for your small business.",
+    category: "Productivity",
+    backgroundColor: "bg-emerald-900",
+    size: "tall",
+    cta: "Get Started",
   },
   {
-    id: '4',
-    title: 'Datalands',
-    description: 'Branding and data, together at last.',
-    category: 'Marketing',
-    imageUrl: 'https://picsum.photos/seed/datalands/800/400',
-    size: 'wide',
-    cta: 'Let\'s Talk'
+    id: "4",
+    title: "Datalands",
+    description: "Branding and data, together at last.",
+    category: "Marketing",
+    imageUrl: "https://picsum.photos/seed/datalands/800/400",
+    size: "wide",
+    cta: "Let's Talk",
   },
   {
-    id: '5',
-    title: 'Neon',
-    description: 'The new creative workflow.',
-    category: 'Design',
-    imageUrl: 'https://picsum.photos/seed/neon/600/600',
-    size: 'small',
-    cta: 'Get Started'
+    id: "5",
+    title: "Neon",
+    description: "The new creative workflow.",
+    category: "Design",
+    imageUrl: "https://picsum.photos/seed/neon/600/600",
+    size: "small",
+    cta: "Get Started",
   },
   {
-    id: '6',
-    title: 'Cartesia',
-    description: 'The fastest, ultra-realistic voice AI platform.',
-    category: 'Development',
-    backgroundColor: 'bg-neutral-900',
-    size: 'tall',
-    cta: 'Start for Free'
+    id: "6",
+    title: "Cartesia",
+    description: "The fastest, ultra-realistic voice AI platform.",
+    category: "Development",
+    backgroundColor: "bg-neutral-900",
+    size: "tall",
+    cta: "Start for Free",
   },
   {
-    id: '7',
-    title: 'Page Break',
-    description: 'A new weekend reading retreat hosted in New York.',
-    category: 'Marketing',
-    backgroundColor: 'bg-blue-600',
-    size: 'big',
-    cta: 'Read Together'
+    id: "7",
+    title: "Page Break",
+    description: "A new weekend reading retreat hosted in New York.",
+    category: "Marketing",
+    backgroundColor: "bg-blue-600",
+    size: "big",
+    cta: "Read Together",
   },
   {
-    id: '8',
-    title: 'Sonar',
-    description: 'Build with the best AI answer engine.',
-    category: 'Development',
-    backgroundColor: 'bg-neutral-800',
-    size: 'wide',
-    cta: 'Start Building'
+    id: "8",
+    title: "Sonar",
+    description: "Build with the best AI answer engine.",
+    category: "Development",
+    backgroundColor: "bg-neutral-800",
+    size: "wide",
+    cta: "Start Building",
   },
   {
-    id: '9',
-    title: 'Sun Hung',
-    description: 'Preserving the legacy of sound.',
-    category: 'Design',
-    backgroundColor: 'bg-red-900',
-    size: 'small'
+    id: "9",
+    title: "Sun Hung",
+    description: "Preserving the legacy of sound.",
+    category: "Design",
+    backgroundColor: "bg-red-900",
+    size: "small",
   },
   {
-    id: '10',
-    title: 'Linear',
-    description: 'Planning and building the future.',
-    category: 'Productivity',
-    imageUrl: 'https://picsum.photos/seed/linear/400/800',
-    size: 'tall'
+    id: "10",
+    title: "Linear",
+    description: "Planning and building the future.",
+    category: "Productivity",
+    imageUrl: "https://picsum.photos/seed/linear/400/800",
+    size: "tall",
   },
   {
-    id: '11',
-    title: 'Comet',
-    description: 'A personal AI assistant for your browser.',
-    category: 'Productivity',
-    backgroundColor: 'bg-white',
-    size: 'tall',
+    id: "11",
+    title: "Comet",
+    description: "A personal AI assistant for your browser.",
+    category: "Productivity",
+    backgroundColor: "bg-white",
+    size: "tall",
     darkText: true,
-    cta: 'Download'
+    cta: "Download",
   },
   {
-    id: '12',
-    title: 'Polarsteps',
-    description: 'One travel app for all your adventures.',
-    category: 'Marketing',
-    imageUrl: 'https://picsum.photos/seed/polar/800/600',
-    size: 'wide',
-    cta: 'Explore'
-  },
-   {
-    id: '13',
-    title: 'Biograph',
-    description: 'Uncover hidden risks in your long-term health.',
-    category: 'Productivity',
-    imageUrl: 'https://picsum.photos/seed/bio/400/400',
-    size: 'small'
+    id: "12",
+    title: "Polarsteps",
+    description: "One travel app for all your adventures.",
+    category: "Marketing",
+    imageUrl: "https://picsum.photos/seed/polar/800/600",
+    size: "wide",
+    cta: "Explore",
   },
   {
-    id: '14',
-    title: 'Abstract 3D',
-    description: 'Geometric shapes pack.',
-    category: 'Design',
-    imageUrl: 'https://picsum.photos/seed/shapes/600/600',
-    size: 'small'
-  }
+    id: "13",
+    title: "Biograph",
+    description: "Uncover hidden risks in your long-term health.",
+    category: "Productivity",
+    imageUrl: "https://picsum.photos/seed/bio/400/400",
+    size: "small",
+  },
+  {
+    id: "14",
+    title: "Abstract 3D",
+    description: "Geometric shapes pack.",
+    category: "Design",
+    imageUrl: "https://picsum.photos/seed/shapes/600/600",
+    size: "small",
+  },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    id: '1',
-    quote: "Mosaic has completely transformed how we approach interface design. The quality of components is unmatched.",
+    id: "1",
+    quote:
+      "Mosaic has completely transformed how we approach interface design. The quality of components is unmatched.",
     author: "Sarah Chen",
     role: "Product Designer",
     company: "Linear",
-    avatarUrl: "https://picsum.photos/seed/sarah/100/100"
+    avatarUrl: "https://picsum.photos/seed/sarah/100/100",
   },
   {
-    id: '2',
-    quote: "The attention to detail in every interaction is what sets this library apart. It's not just code, it's craft.",
+    id: "2",
+    quote:
+      "The attention to detail in every interaction is what sets this library apart. It's not just code, it's craft.",
     author: "Marcus Rodriguez",
     role: "Frontend Lead",
     company: "Vercel",
-    avatarUrl: "https://picsum.photos/seed/marcus/100/100"
+    avatarUrl: "https://picsum.photos/seed/marcus/100/100",
   },
   {
-    id: '3',
-    quote: "We shipped our new dashboard in record time using these layouts. The grid system is incredibly flexible.",
+    id: "3",
+    quote:
+      "We shipped our new dashboard in record time using these layouts. The grid system is incredibly flexible.",
     author: "Emily Watson",
     role: "CTO",
     company: "Raycast",
-    avatarUrl: "https://picsum.photos/seed/emily/100/100"
+    avatarUrl: "https://picsum.photos/seed/emily/100/100",
   },
   {
-    id: '4',
-    quote: "The best design resource I've found in years. It's become an essential part of our prototyping workflow.",
+    id: "4",
+    quote:
+      "The best design resource I've found in years. It's become an essential part of our prototyping workflow.",
     author: "David Park",
     role: "Senior Designer",
     company: "Airbnb",
-    avatarUrl: "https://picsum.photos/seed/david/100/100"
+    avatarUrl: "https://picsum.photos/seed/david/100/100",
   },
   {
-    id: '5',
-    quote: "Clean, performant, and beautiful. Mosaic helps us maintain consistency across all our internal tools.",
+    id: "5",
+    quote:
+      "Clean, performant, and beautiful. Mosaic helps us maintain consistency across all our internal tools.",
     author: "Sophie Alpert",
     role: "Engineering Manager",
     company: "Stripe",
-    avatarUrl: "https://picsum.photos/seed/sophie/100/100"
+    avatarUrl: "https://picsum.photos/seed/sophie/100/100",
   },
   {
-    id: '6',
-    quote: "I love how easy it is to customize the components. It feels like a bespoke design system out of the box.",
+    id: "6",
+    quote:
+      "I love how easy it is to customize the components. It feels like a bespoke design system out of the box.",
     author: "James Wilson",
     role: "Indie Developer",
     company: "Self-employed",
-    avatarUrl: "https://picsum.photos/seed/james/100/100"
-  }
+    avatarUrl: "https://picsum.photos/seed/james/100/100",
+  },
 ];

@@ -1,65 +1,79 @@
-import Image from "next/image";
+"use client";
+
+import { ArrowRight } from "lucide-react";
+import BentoGrid from "@/components/mosaic/BentoGrid";
+import Navbar from "@/components/mosaic/Navbar";
+import Testimonials from "@/components/mosaic/Testimonials";
+import { ITEMS } from "@/data/mosaic";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-black text-foreground font-sans selection:bg-blue-500/30">
+      <Navbar />
+
+      <main className="w-full">
+        <div className="relative isolate overflow-hidden pt-12 pb-8 md:pt-20 md:pb-12 border-b border-white/5">
+          <div className="w-full px-4 md:px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl text-center">
+              <h1 className="text-5xl font-bold tracking-tighter text-white sm:text-7xl mb-6">
+                The world’s best
+                <br />
+                <span className="text-neutral-500">design gallery.</span>
+              </h1>
+              <p className="mt-4 text-lg leading-8 text-neutral-400 max-w-2xl mx-auto">
+                A curated collection of the finest interface designs,
+                components, and layouts. Built for inspiration.
+              </p>
+              <div className="mt-8 flex items-center justify-center gap-x-6">
+                <button
+                  type="button"
+                  className="rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm hover:bg-neutral-200 transition-colors"
+                >
+                  Submit Design
+                </button>
+                <a
+                  href="#"
+                  className="text-sm font-semibold leading-6 text-white flex items-center gap-1 group"
+                >
+                  Explore Collection{" "}
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="absolute top-0 -z-10 transform-gpu overflow-hidden blur-3xl w-full flex justify-center opacity-30"
+            aria-hidden="true"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="relative aspect-[1155/678] w-[70rem] -translate-x-1/2 bg-gradient-to-tr from-[#2a2a2a] to-[#404040] sm:left-[50%] sm:w-[80rem]"></div>
+          </div>
         </div>
+
+        <BentoGrid items={ITEMS} />
+
+        <Testimonials />
       </main>
+
+      <footer className="border-t border-white/10 bg-black py-12">
+        <div className="w-full px-4 md:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500">
+          <p>&copy; 2024 Mosaic Design Systems.</p>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <a href="#" className="hover:text-white transition-colors">
+              Instagram
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Twitter
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

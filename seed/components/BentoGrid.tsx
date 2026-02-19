@@ -1,20 +1,23 @@
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { BentoItem, Category } from '../types';
-import { CATEGORIES, MORE_CATEGORIES } from '../constants';
-import BentoCard from './BentoCard';
-import { ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import type React from "react";
+import { useMemo, useState } from "react";
+import { CATEGORIES, MORE_CATEGORIES } from "../constants";
+import type { BentoItem, Category } from "../types";
+import BentoCard from "./BentoCard";
 
 interface BentoGridProps {
   items: BentoItem[];
 }
 
 const BentoGrid: React.FC<BentoGridProps> = ({ items }) => {
-  const [selectedCategory, setSelectedCategory] = useState<Category | string>('All');
+  const [selectedCategory, setSelectedCategory] = useState<Category | string>(
+    "All",
+  );
   const [isMoreOpen, setIsMoreOpen] = useState(false);
 
   const filteredItems = useMemo(() => {
-    if (selectedCategory === 'All') return items;
+    if (selectedCategory === "All") return items;
     // If selected category is in the main list
     if (CATEGORIES.includes(selectedCategory as any)) {
       return items.filter((item) => item.category === selectedCategory);
@@ -25,8 +28,8 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items }) => {
     return items.filter((item) => item.category === selectedCategory);
   }, [items, selectedCategory]);
 
-  const handleCategoryClick = (category: Category | string) => {
-    if (category === 'More') {
+  const _handleCategoryClick = (category: Category | string) => {
+    if (category === "More") {
       setIsMoreOpen(!isMoreOpen);
     } else {
       setSelectedCategory(category);
@@ -46,49 +49,57 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items }) => {
         <h2 className="text-2xl font-semibold tracking-tight text-white">
           Featured Projects
         </h2>
-        
+
         <div className="relative">
           <div className="flex items-center space-x-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar max-w-full">
-              <div className="flex items-center rounded-full bg-neutral-900/50 p-1 border border-white/5 backdrop-blur-sm relative z-30">
-                  {CATEGORIES.map((category) => (
-                      <button
-                      key={category}
-                      onClick={() => setSelectedCategory(category)}
-                      className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
-                          selectedCategory === category
-                          ? 'text-black'
-                          : 'text-neutral-400 hover:text-white'
-                      }`}
-                      >
-                      {selectedCategory === category && (
-                          <motion.div
-                          layoutId="activeCategory"
-                          className="absolute inset-0 rounded-full bg-white"
-                          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                          />
-                      )}
-                      <span className="relative z-10">{category}</span>
-                      </button>
-                  ))}
-                  
-                  {/* More Button */}
-                  <button
-                    onClick={() => setIsMoreOpen(!isMoreOpen)}
-                    className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 flex items-center gap-1 ${
-                        isMoreOpen || !CATEGORIES.includes(selectedCategory as any) && selectedCategory !== 'All'
-                        ? 'text-white'
-                        : 'text-neutral-400 hover:text-white'
-                    }`}
-                  >
-                    <span className="relative z-10">More</span>
+            <div className="flex items-center rounded-full bg-neutral-900/50 p-1 border border-white/5 backdrop-blur-sm relative z-30">
+              {CATEGORIES.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 ${
+                    selectedCategory === category
+                      ? "text-black"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  {selectedCategory === category && (
                     <motion.div
-                      animate={{ rotate: isMoreOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown size={14} />
-                    </motion.div>
-                  </button>
-              </div>
+                      layoutId="activeCategory"
+                      className="absolute inset-0 rounded-full bg-white"
+                      transition={{
+                        type: "spring",
+                        bounce: 0.2,
+                        duration: 0.6,
+                      }}
+                    />
+                  )}
+                  <span className="relative z-10">{category}</span>
+                </button>
+              ))}
+
+              {/* More Button */}
+              <button
+                onClick={() => setIsMoreOpen(!isMoreOpen)}
+                className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 flex items-center gap-1 ${
+                  isMoreOpen ||
+                  (
+                    !CATEGORIES.includes(selectedCategory as any) &&
+                      selectedCategory !== "All"
+                  )
+                    ? "text-white"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                <span className="relative z-10">More</span>
+                <motion.div
+                  animate={{ rotate: isMoreOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown size={14} />
+                </motion.div>
+              </button>
+            </div>
           </div>
 
           {/* Expandable Panel */}
@@ -96,7 +107,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items }) => {
             {isMoreOpen && (
               <motion.div
                 initial={{ opacity: 0, y: -10, height: 0, scale: 0.95 }}
-                animate={{ opacity: 1, y: 8, height: 'auto', scale: 1 }}
+                animate={{ opacity: 1, y: 8, height: "auto", scale: 1 }}
                 exit={{ opacity: 0, y: -10, height: 0, scale: 0.95 }}
                 transition={{ type: "spring", duration: 0.4, bounce: 0 }}
                 className="absolute right-0 top-full mt-2 w-full md:w-[480px] bg-neutral-900/90 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl overflow-hidden z-20 origin-top-right"
@@ -108,8 +119,8 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items }) => {
                       onClick={() => handleMoreCategorySelect(cat)}
                       className={`text-left px-3 py-2 rounded-lg text-sm transition-colors ${
                         selectedCategory === cat
-                          ? 'bg-white text-black font-medium'
-                          : 'text-neutral-400 hover:text-white hover:bg-white/5'
+                          ? "bg-white text-black font-medium"
+                          : "text-neutral-400 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       {cat}
@@ -123,24 +134,22 @@ const BentoGrid: React.FC<BentoGridProps> = ({ items }) => {
       </div>
 
       {/* Grid */}
-      <motion.div 
+      <motion.div
         layout
         className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 auto-rows-[280px] grid-flow-dense"
       >
         <AnimatePresence mode="popLayout">
           {filteredItems.length > 0 ? (
-            filteredItems.map((item) => (
-              <BentoCard key={item.id} item={item} />
-            ))
+            filteredItems.map((item) => <BentoCard key={item.id} item={item} />)
           ) : (
-             <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                exit={{ opacity: 0 }}
-                className="col-span-full py-20 text-center text-neutral-500"
-             >
-                No items found in this category.
-             </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="col-span-full py-20 text-center text-neutral-500"
+            >
+              No items found in this category.
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
