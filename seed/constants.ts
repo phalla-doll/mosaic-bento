@@ -10,9 +10,9 @@ export const CATEGORIES = [
 
 export const MORE_CATEGORIES = [
   "Analytics",
-  "Artificial Intelligence",
+  "AI",
   "Blockchain",
-  "Cloud Infrastructure",
+  "Cloud Infra",
   "Cybersecurity",
   "Data Science",
   "E-commerce",
@@ -154,6 +154,15 @@ export const ITEMS: BentoItem[] = [
     category: "Design",
     imageUrl: "https://picsum.photos/seed/shapes/600/600",
     size: "small",
+  },
+  {
+    id: "15",
+    title: "Vertex",
+    description: "The future of 3D collaboration.",
+    category: "Development",
+    imageUrl: "https://picsum.photos/seed/vertex/800/400",
+    size: "wide",
+    cta: "Try Now",
   },
 ];
 
