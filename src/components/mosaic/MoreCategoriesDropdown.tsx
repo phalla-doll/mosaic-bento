@@ -1,15 +1,19 @@
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import type React from "react";
 import { MORE_CATEGORIES } from "@/data/mosaic";
 
 interface MoreCategoriesDropdownProps {
   isOpen: boolean;
+  selectedCategory: string;
   onClose: () => void;
   onSelectCategory: (category: string) => void;
 }
 
 const MoreCategoriesDropdown: React.FC<MoreCategoriesDropdownProps> = ({
   isOpen,
+  selectedCategory,
   onClose,
   onSelectCategory,
 }) => {
@@ -33,7 +37,11 @@ const MoreCategoriesDropdown: React.FC<MoreCategoriesDropdownProps> = ({
                   e.stopPropagation();
                   onSelectCategory(cat);
                 }}
-                className="text-left px-3 py-2 rounded-lg text-sm transition-colors hover:bg-white/5"
+                className={`text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                  selectedCategory === cat
+                    ? "bg-white text-black font-medium"
+                    : "text-neutral-400 hover:text-white hover:bg-white/5"
+                }`}
               >
                 {cat}
               </button>

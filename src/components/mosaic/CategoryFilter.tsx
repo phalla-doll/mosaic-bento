@@ -66,7 +66,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
             className={`relative rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200 flex items-center gap-1 ${
               isMoreOpen ||
               (
-                !CATEGORIES.includes(selectedCategory as Category) &&
+                !(CATEGORIES as readonly string[]).includes(selectedCategory) &&
                   selectedCategory !== "All"
               )
                 ? "text-white"
@@ -86,6 +86,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
       <MoreCategoriesDropdown
         isOpen={isMoreOpen}
+        selectedCategory={selectedCategory}
         onClose={() => setIsMoreOpen(false)}
         onSelectCategory={handleMoreCategorySelect}
       />

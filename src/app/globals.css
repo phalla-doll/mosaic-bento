@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-sans: var(--font-cabinet-grotesk);
+}
+
 :root {
   --background: #050505;
   --foreground: #ededed;

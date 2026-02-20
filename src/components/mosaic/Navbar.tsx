@@ -1,6 +1,6 @@
 "use client";
 
-import { Layers } from "lucide-react";
+import { Layers, Menu, Search } from "lucide-react";
 import type React from "react";
 
 const Navbar: React.FC = () => {
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             <div className="relative hidden md:block group">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <Layers
+                <Search
                   size={16}
                   className="text-neutral-500 group-focus-within:text-white transition-colors"
                 />
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
               type="button"
               className="md:hidden text-neutral-400 hover:text-white"
             >
-              <Layers size={24} />
+              <Menu size={24} />
             </button>
           </div>
         </div>
